@@ -5,8 +5,246 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Weather App</title>
+        <script
+            src="https://kit.fontawesome.com/4323c15833.js"
+            crossorigin="anonymous"
+        ></script>
         <link rel="stylesheet" href="styles.css" />
-        <script src="main.js" defer></script>
+        <script type="module" src="main.js"></script>
     </head>
-    <body></body>
+    <body>
+        <main id="app" class="app-container">
+            <section class="search-bar">
+                <form
+                    id="search-bar__form"
+                    class="search-bar__form"
+                    autocomplete="off"
+                >
+                    <input
+                        id="search-bar__input"
+                        class="search-bar__input"
+                        type="text"
+                        required
+                        placeholder="Enter a location"
+                        maxlength="30"
+                    />
+                    <button
+                        id="search-bar__btn"
+                        class="search-bar__btn btn"
+                        type="submit"
+                        title="Weather Search"
+                    >
+                        <i id="search-spinner" class="fa fa-search"></i>
+                        <i class="fas fa-sync fa-spin display-none"></i>
+                    </button>
+                </form>
+                <span
+                    id="search-bar__banner"
+                    class="search-bar__banner banner"
+                ></span>
+                <nav class="nav">
+                    <button
+                        id="home-btn"
+                        class="nav__btn btn"
+                        title="Show Home Location"
+                    >
+                        <i id="home-location-spinner" class="fas fa-home"></i>
+                        <i class="fas fa-sync fa-spin display-none"></i>
+                    </button>
+                    <button
+                        id="save-btn"
+                        class="nav__btn btn"
+                        title="Save Location as Home"
+                    >
+                        <i class="fas fa-save"></i>
+                    </button>
+                    <button
+                        id="toggle-unit-btn"
+                        class="nav__btn btn"
+                        title="Toggle Celcius / Farenheit"
+                    >
+                        <span
+                            class="nav__unit nav__unit-active"
+                            data-active-unit
+                            >°C</span
+                        >
+                        <span>/</span>
+                        <span class="nav__unit" data-not-active-unit>°F</span>
+                    </button>
+                    <button
+                        id="refresh-btn"
+                        class="nav__btn btn"
+                        icon
+                        title="Refresh Results"
+                    >
+                        <i id="refresh-spinner" class="fas fa-sync"></i>
+                        <i class="fas fa-sync fa-spin display-none"></i>
+                    </button>
+                </nav>
+            </section>
+            <section class="results display-none" id="results-section">
+                <h1 id="results__location" class="results__location"></h1>
+                <h2 id="results__description" class="results__description"></h2>
+                <div class="results__row">
+                    <img id="results__icon" alt="" />
+                    <div class="results__temp">
+                        <span
+                            data-temp
+                            id="results__temp-value"
+                            class="results__temp-value"
+                        ></span>
+                        <span
+                            id="results__temp-degree"
+                            class="results__temp-degree"
+                        ></span>
+                    </div>
+                </div>
+            </section>
+            <section class="forecast display-none" id="forecast-section">
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-0"></h1>
+                    <img id="forecast__icon-0" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-0"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-0"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-1"></h1>
+                    <img id="forecast__icon-1" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-1"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-1"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-2"></h1>
+                    <img id="forecast__icon-2" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-2"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-2"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-3"></h1>
+                    <img id="forecast__icon-3" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-3"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-3"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-4"></h1>
+                    <img id="forecast__icon-4" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-4"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-4"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-5"></h1>
+                    <img id="forecast__icon-5" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-5"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-5"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-6"></h1>
+                    <img id="forecast__icon-6" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-6"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-6"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+                <div class="forecast__result">
+                    <h1 class="forecast__date" id="forecast__date-7"></h1>
+                    <img id="forecast__icon-7" src="" alt="" />
+                    <div class="forecast__row">
+                        <span
+                            class="forecast__day-temp"
+                            id="forecast__day-temp-7"
+                            data-temp
+                        ></span>
+                        <span
+                            class="forecast__night-temp"
+                            id="forecast__night-temp-7"
+                            data-temp
+                        ></span>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <span class="footer__text">created by Kapaha </span>
+                <a
+                    href="http://"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="footer__github-link"
+                >
+                    <img
+                        src="images/GitHub-Mark-Light-64px.png"
+                        alt="github icon"
+                        class="footer__github-logo"
+                    />
+                </a>
+            </footer>
+        </main>
+    </body>
 </html>
