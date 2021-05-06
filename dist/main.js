@@ -102,7 +102,7 @@ function showDisplay() {
     resultsSection.classList.remove('display-none');
     forecastSection.classList.remove('display-none');
     resultsSection.classList.add('display-flex');
-    forecastSection.classList.add('display-flex');
+    forecastSection.classList.add('display-grid');
 }
 
 function updateDisplay(data, data2) {
