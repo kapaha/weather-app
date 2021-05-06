@@ -262,20 +262,32 @@ input,
     font-weight: 500;
 }
 
-.forecast__row {
+.forecast__temp {
     display: flex;
     justify-content: space-around;
     font-size: 1.5rem;
     width: 100%;
 }
 
+.forecast__day,
+.forecast__night {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forecast__night {
+    color: var(--color-primary-light);
+}
+
+.forecast__day > * + *,
+.forecast__night > * + * {
+    margin-left: 0.5em;
+}
+
 .forecast__day-temp::after,
 .forecast__night-temp::after {
     content: '°';
-}
-
-.forecast__night-temp {
-    color: var(--color-primary-light);
 }
 
 /* Footer */

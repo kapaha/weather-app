@@ -86,23 +86,19 @@ export function updateDisplay(data, data2) {
     const { description, iconUrl, location, temp } = data;
 
     data2.forEach((day, index) => {
-        const dateEl = document.querySelector(`#forecast__date-${index}`);
+        const forecastEl = document.querySelector(`#forecast__result-${index}`);
+
+        const dateEl = forecastEl.querySelector(`.forecast__date`);
         dateEl.textContent = day.dateShort;
 
-        const forecastIconEl = document.querySelector(
-            `#forecast__icon-${index}`
-        );
+        const forecastIconEl = forecastEl.querySelector(`.forecast__icon`);
         forecastIconEl.src = day.iconUrl;
 
-        const dayTempEl = document.querySelector(
-            `#forecast__day-temp-${index}`
-        );
+        const dayTempEl = forecastEl.querySelector(`.forecast__day-temp`);
         dayTempEl.textContent = `${Math.round(day.dayTemp)}`;
         dayTempEl.dataset.temp = day.dayTemp;
 
-        const nightTempEl = document.querySelector(
-            `#forecast__night-temp-${index}`
-        );
+        const nightTempEl = forecastEl.querySelector(`.forecast__night-temp`);
         nightTempEl.textContent = `${Math.round(day.nightTemp)}`;
         nightTempEl.dataset.temp = day.nightTemp;
     });
