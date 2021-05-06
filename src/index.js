@@ -21,6 +21,7 @@ import {
     toggleRefreshSpinner,
     showDisplay,
     convertTemps,
+    unFocusInput,
 } from './dom';
 
 import { celsiusToFarenheit, farenheitToCelsius } from './math';
@@ -126,6 +127,7 @@ async function loadWeather(location, spinnerCallback, msg) {
     }
 
     updateDisplay(currentData, forecastData);
+    unFocusInput();
 }
 
 // helper functions

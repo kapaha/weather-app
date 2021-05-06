@@ -19,6 +19,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "showDisplay": () => (/* binding */ showDisplay),
 /* harmony export */   "updateDisplay": () => (/* binding */ updateDisplay),
 /* harmony export */   "convertTemps": () => (/* binding */ convertTemps),
+/* harmony export */   "unFocusInput": () => (/* binding */ unFocusInput),
 /* harmony export */   "getSearchInput": () => (/* binding */ getSearchInput)
 /* harmony export */ });
 /* eslint-disable no-param-reassign */
@@ -145,6 +146,10 @@ function convertTemps(convertTemp) {
         el.textContent = Math.round(newTemp);
         el.dataset.temp = newTemp;
     });
+}
+
+function unFocusInput() {
+    input.blur();
 }
 
 // functions to get values
@@ -513,6 +518,7 @@ async function loadWeather(location, spinnerCallback, msg) {
     }
 
     (0,_dom__WEBPACK_IMPORTED_MODULE_3__.updateDisplay)(currentData, forecastData);
+    (0,_dom__WEBPACK_IMPORTED_MODULE_3__.unFocusInput)();
 }
 
 // helper functions

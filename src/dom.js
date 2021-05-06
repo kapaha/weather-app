@@ -124,6 +124,10 @@ export function convertTemps(convertTemp) {
     });
 }
 
+export function unFocusInput() {
+    input.blur();
+}
+
 // functions to get values
 export function getSearchInput() {
     return input.value;
