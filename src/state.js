@@ -42,11 +42,6 @@ export default function stateFactory() {
         setUnitPref(unit);
     }
 
-    // testing
-    function logState() {
-        console.log(app.dataset);
-    }
-
     return {
         getCurrentLocation,
         setCurrentLocation,
@@ -55,6 +50,5 @@ export default function stateFactory() {
         getUnitPref,
         setUnitPref,
         toggleUnitPref,
-        logState,
     };
 }
