@@ -268,11 +268,6 @@ function stateFactory() {
         setUnitPref(unit);
     }
 
-    // testing
-    function logState() {
-        console.log(app.dataset);
-    }
-
     return {
         getCurrentLocation,
         setCurrentLocation,
@@ -281,7 +276,6 @@ function stateFactory() {
         getUnitPref,
         setUnitPref,
         toggleUnitPref,
-        logState,
     };
 }
 
