@@ -2,11 +2,9 @@ export default function stateFactory() {
     const app = document.querySelector('#app');
 
     let currentLocation = null;
-    let currentTemp = null;
     let unitPref = 'celsius';
 
     app.dataset.currentLocation = currentLocation;
-    app.dataset.currentTemp = currentTemp;
     app.dataset.unitPref = unitPref;
 
     function getCurrentLocation() {
@@ -16,15 +14,6 @@ export default function stateFactory() {
     function setCurrentLocation(location) {
         currentLocation = location;
         app.dataset.currentLocation = location;
-    }
-
-    function getCurrentTemp() {
-        return currentTemp;
-    }
-
-    function setCurrentTemp(temp) {
-        currentTemp = Number(temp);
-        app.dataset.currentTemp = temp;
     }
 
     function getUnitPref() {
@@ -45,8 +34,6 @@ export default function stateFactory() {
     return {
         getCurrentLocation,
         setCurrentLocation,
-        getCurrentTemp,
-        setCurrentTemp,
         getUnitPref,
         setUnitPref,
         toggleUnitPref,

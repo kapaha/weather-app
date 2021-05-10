@@ -118,7 +118,6 @@ async function loadWeather(location, spinnerCallback, msg) {
     }
 
     state.setCurrentLocation(currentData.location);
-    state.setCurrentTemp(currentData.temp);
 
     hideBanner();
 
