@@ -93,6 +93,7 @@ export function updateDisplay(data, data2) {
 
         const forecastIconEl = forecastEl.querySelector(`.forecast__icon`);
         forecastIconEl.src = day.iconUrl;
+        forecastIconEl.alt = day.description;
 
         const dayTempEl = forecastEl.querySelector(`.forecast__day-temp`);
         dayTempEl.textContent = `${Math.round(day.dayTemp)}`;
