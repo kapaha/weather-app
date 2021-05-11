@@ -46,6 +46,19 @@ export async function handleHomeButtonClick() {
     toggleHomeLocationSpinner();
 }
 
+export async function handleRefreshBtnClick() {
+    if (!state.getCurrentLocation()) {
+        showBanner('No Current Location To Refresh', 'error');
+        return;
+    }
+
+    toggleRefreshSpinner();
+
+    await loadWeather(state.getCurrentLocation(), 'Current Location Refreshed');
+
+    toggleRefreshSpinner();
+}
+
 export function handleUnitBtnClick() {
     if (state.getCurrentLocation()) {
         const convertTempFn =
@@ -68,19 +81,4 @@ export function handleSaveLocation() {
     saveHomeLocation(state.getCurrentLocation());
 
     showBanner('Home Location Saved', 'success');
-}
-
-export function handleRefreshBtnClick() {
-    if (!state.getCurrentLocation()) {
-        showBanner('No Current Location To Refresh', 'error');
-        return;
-    }
-
-    toggleRefreshSpinner();
-
-    loadWeather(
-        state.getCurrentLocation(),
-        toggleRefreshSpinner,
-        'Current Location Refreshed'
-    );
 }
