@@ -82,6 +82,10 @@ input,
     display: grid;
 }
 
+.weather-icon {
+    filter: contrast(1.2);
+}
+
 /* Container */
 .app-container {
     width: 100%;
@@ -259,7 +263,15 @@ input,
 }
 
 .forecast__date {
+    font-size: 1.5rem;
     font-weight: 500;
+}
+
+.forecast__description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0.75rem;
+    text-align: center;
 }
 
 .forecast__temp {
