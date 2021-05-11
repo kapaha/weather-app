@@ -1,6 +1,9 @@
 import unixToDate from '../utils/unixToDate';
+
 import { getCurrentWeather, getForecastWeather } from './weatherApi';
+
 import state from '../state';
+
 import {
     showBanner,
     showDisplay,

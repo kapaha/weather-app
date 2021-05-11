@@ -1,6 +1,6 @@
-import state from './state';
+import state from './modules/state';
 
-import { getHomeLocation, getUnitPreference } from './storage';
+import { getHomeLocation, getUnitPreference } from './modules/storage';
 
 import {
     handleHomeButtonClick,
@@ -8,11 +8,11 @@ import {
     handleSaveLocation,
     handleUnitBtnClick,
     handleWeatherSearch,
-} from './eventListeners';
+} from './modules/eventListeners';
 
-import { toggleUnitBtn } from './dom';
+import { toggleUnitBtn } from './modules/dom';
 
-import loadWeather from './weather/weatherFunctions';
+import loadWeather from './modules/weather/weatherFunctions';
 
 initApp();
 
