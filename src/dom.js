@@ -6,7 +6,6 @@ const locationEl = document.getElementById('results__location');
 const descriptionEl = document.getElementById('results__description');
 const iconEl = document.getElementById('results__icon');
 const tempEl = document.getElementById('results__temp-value');
-const tempDegreeEl = document.querySelector('#results__temp-degree');
 const input = document.querySelector('#search-bar__input');
 const searchSpinner = document.querySelector('#search-spinner');
 const homeLocationSpinner = document.querySelector('#home-location-spinner');
@@ -82,10 +81,19 @@ export function showDisplay() {
     forecastSection.classList.add('display-grid');
 }
 
-export function updateDisplay(data, data2) {
+export function updateCurrentDisplay(data) {
     const { description, iconUrl, location, temp } = data;
 
-    data2.forEach((day, index) => {
+    descriptionEl.textContent = description;
+    iconEl.src = iconUrl;
+    iconEl.alt = description;
+    locationEl.textContent = location;
+    tempEl.textContent = Math.round(temp);
+    tempEl.dataset.temp = temp;
+}
+
+export function updateForecastDisplay(data) {
+    data.forEach((day, index) => {
         const forecastEl = document.querySelector(`#forecast__result-${index}`);
 
         const dateEl = forecastEl.querySelector(`.forecast__date`);
@@ -108,14 +116,6 @@ export function updateDisplay(data, data2) {
         nightTempEl.textContent = `${Math.round(day.nightTemp)}`;
         nightTempEl.dataset.temp = day.nightTemp;
     });
-
-    descriptionEl.textContent = description;
-    iconEl.src = iconUrl;
-    iconEl.alt = description;
-    locationEl.textContent = location;
-    tempEl.textContent = Math.round(temp);
-    tempEl.dataset.temp = temp;
-    tempDegreeEl.textContent = '°';
 }
 
 export function convertTemps(convertTemp) {

@@ -6,7 +6,8 @@ import {
     showDisplay,
     hideBanner,
     unFocusInput,
-    updateDisplay,
+    updateCurrentDisplay,
+    updateForecastDisplay,
 } from '../dom';
 
 export default async function loadWeather(location, msg) {
@@ -22,7 +23,8 @@ export default async function loadWeather(location, msg) {
 
     state.setCurrentLocation(data.currentData.location);
 
-    updateDisplay(data.currentData, data.forecastData);
+    updateCurrentDisplay(data.currentData);
+    updateForecastDisplay(data.forecastData);
     unFocusInput();
 
     if (msg) {
