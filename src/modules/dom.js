@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-
 // define elements
 const bannerEl = document.getElementById('search-bar__banner');
 const locationEl = document.getElementById('results__location');
