@@ -74,7 +74,7 @@ function processCurrentWeather(data) {
 
     return {
         description: data.weather[0].description,
-        iconUrl: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+        iconUrl: `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
         location: locationString,
         temp: data.main.temp,
         latitude: data.coord.lat,
@@ -89,7 +89,7 @@ function processForecastWeather(data) {
             dateShort: `${date.day}, ${date.month} ${date.date}`,
             dayTemp: day.temp.day,
             description: day.weather[0].description,
-            iconUrl: `http://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`,
+            iconUrl: `https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`,
             nightTemp: day.temp.night,
         };
     });
