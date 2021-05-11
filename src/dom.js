@@ -91,6 +91,11 @@ export function updateDisplay(data, data2) {
         const dateEl = forecastEl.querySelector(`.forecast__date`);
         dateEl.textContent = day.dateShort;
 
+        const forecastDescriptionEl = forecastEl.querySelector(
+            '.forecast__description'
+        );
+        forecastDescriptionEl.textContent = day.description;
+
         const forecastIconEl = forecastEl.querySelector(`.forecast__icon`);
         forecastIconEl.src = day.iconUrl;
         forecastIconEl.alt = day.description;
